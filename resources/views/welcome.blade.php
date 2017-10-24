@@ -79,8 +79,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{ $page_title }}
                 </div>
+
+                <p>Tarikh hari ini adalah: {!! $tarikh !!}</p>
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

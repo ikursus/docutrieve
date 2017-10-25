@@ -45,7 +45,7 @@
 
                             <div class="col-md-6">
                                 <input id="telefon" type="text" class="form-control" name="telefon" value="{{ old('telefon') }}" autofocus>
-                                {!! $errors->first('email', '<span style="color: green">:message</span>') !!}
+                                {!! $errors->first('telefon', '<span style="color: green">:message</span>') !!}
                             </div>
                         </div>
 

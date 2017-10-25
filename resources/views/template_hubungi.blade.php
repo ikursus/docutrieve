@@ -9,14 +9,25 @@
 
                 <div class="panel-body">
 
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form class="form-horizontal" method="POST" action="{{ url('hubungi') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
                             <label for="nama" class="col-md-4 control-label">Nama Anda</label>
 
                             <div class="col-md-6">
-                                <input id="nama" type="text" class="form-control" name="nama" value="{{ old('nama') }}" required autofocus>
+                                <input id="nama" type="text" class="form-control" name="nama" value="{{ old('nama') }}" autofocus>
+                                {!! $errors->first('nama', ':message') !!}
                             </div>
                         </div>
 
@@ -24,7 +35,8 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Anda</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
+                                {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
                             </div>
                         </div>
 
@@ -32,7 +44,8 @@
                             <label for="telefon" class="col-md-4 control-label">No. Telefon</label>
 
                             <div class="col-md-6">
-                                <input id="telefon" type="text" class="form-control" name="telefon" value="{{ old('telefon') }}" required autofocus>
+                                <input id="telefon" type="text" class="form-control" name="telefon" value="{{ old('telefon') }}" autofocus>
+                                {!! $errors->first('email', '<span style="color: green">:message</span>') !!}
                             </div>
                         </div>
 
@@ -40,7 +53,7 @@
                             <label for="pertanyaan" class="col-md-4 control-label">Pertanyaan</label>
 
                             <div class="col-md-6">
-                                <textarea id="pertanyaan" class="form-control" name="pertanyaan" required autofocus>{{ old('pertanyaan') }}</textarea>
+                                <textarea id="pertanyaan" class="form-control" name="pertanyaan"  autofocus>{{ old('pertanyaan') }}</textarea>
                             </div>
                         </div>
 

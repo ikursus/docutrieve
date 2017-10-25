@@ -9,54 +9,44 @@
 
                 <div class="panel-body">
 
-                  <div class="alert alert-danger" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    Sila isikan email anda dibawah</div>
-
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        Ini content popup
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
+                        <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                            <label for="nama" class="col-md-4 control-label">Nama Anda</label>
+
+                            <div class="col-md-6">
+                                <input id="nama" type="text" class="form-control" name="nama" value="{{ old('nama') }}" required autofocus>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail Anda</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                            </div>
+                        </div>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group{{ $errors->has('telefon') ? ' has-error' : '' }}">
+                            <label for="telefon" class="col-md-4 control-label">No. Telefon</label>
+
+                            <div class="col-md-6">
+                                <input id="telefon" type="text" class="form-control" name="telefon" value="{{ old('telefon') }}" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('pertanyaan') ? ' has-error' : '' }}">
+                            <label for="pertanyaan" class="col-md-4 control-label">Pertanyaan</label>
+
+                            <div class="col-md-6">
+                                <textarea id="pertanyaan" class="form-control" name="pertanyaan" required autofocus>{{ old('pertanyaan') }}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-danger">
+                                <button type="submit" class="btn btn-primary">
                                     Hantar
                                 </button>
 

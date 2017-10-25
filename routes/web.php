@@ -1,21 +1,11 @@
 <?php
 
-Route::get('/', function () {
+Route::get('/', 'PagesController@index');
 
-    $page_title = 'Halaman Utama';
-    $tarikh = date('D M Y');
-
-    return view('welcome', compact('page_title', 'tarikh') );
-});
-
-Route::get('dashboard', function() {
-  return view('template_dashboard');
-});
+Route::get('dashboard', 'PagesController@dashboard');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('hubungi', function() {
-  return view('template_hubungi');
-});
+Route::get('hubungi', 'PagesController@borangHubungi');

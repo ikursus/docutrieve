@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class UsersController extends Controller
 {
@@ -11,9 +12,42 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request )
     {
-        //
+        // Dapatkan SEMUA rekod senarai users dari table users
+        // $senarai_users = DB::table('users')->get();
+        // Dapatkan data berdasarkan kondisi ID = 2
+        // $senarai_users = DB::table('users')
+        // //->where('id', '=', '2')
+        // //->whereIn('id', ['2', '3'])
+        // ->whereNotIn('id', ['2', '3'])
+        // ->get();
+
+        // $senarai_users = DB::table('users')
+        // ->select('nama', 'no_kp', 'email')
+        // ->get();
+
+        // Kira jumlah users
+        // $jumlah_users = DB::table('users')->count();
+
+        // Query berdasarkan kondisi cawangan dalam table users
+        if ( ! empty( $request->input('caw') ) )
+        {
+          $senarai_users = DB::table('users')
+          ->where('cawangan', '=', $request->input('caw') )
+          ->orderBy('id', 'desc')
+          ->paginate(2);
+        }
+        else
+        {
+          $senarai_users = DB::table('users')
+          ->orderBy('id', 'desc')
+          ->paginate(2);
+        }
+
+        // Paparkan template index.blade.php dari folder users
+        // dan pass kan variable $senarai_users untuk paparan di browser
+        return view('folder_users/index', compact('senarai_users'));
     }
 
     /**
@@ -23,7 +57,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+      // Paparkan borang tambah user dari folder_users
+        return view('folder_users/borang');
     }
 
     /**

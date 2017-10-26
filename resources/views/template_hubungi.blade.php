@@ -22,6 +22,10 @@
                     <form class="form-horizontal" method="POST" action="{{ url('hubungi') }}">
                         {{ csrf_field() }}
 
+                        <?php // <input type="hidden" name="_token" value="{{ csrf_token() }}">; ?>
+                        {{-- Comment Laravel --}}
+                        <!-- Komen untuk HTML -->
+
                         <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
                             <label for="nama" class="col-md-4 control-label">Nama Anda</label>
 

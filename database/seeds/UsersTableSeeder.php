@@ -16,8 +16,7 @@ class UsersTableSeeder extends Seeder
           'email' => 'ali@gmail.com',
           'no_kp' => '707070088888',
           'cawangan' => '1',
-          'password' => bcrypt('abc123'),
-          'total_records' => 1
+          'password' => bcrypt('abc123')
       ]);
 
       DB::table('users')->insert([
@@ -25,8 +24,7 @@ class UsersTableSeeder extends Seeder
           'email' => 'ahmad@gmail.com',
           'no_kp' => '709970088888',
           'cawangan' => '2',
-          'password' => bcrypt('abc123'),
-          'total_records' => 1
+          'password' => bcrypt('abc123')
       ]);
 
       DB::table('users')->insert([
@@ -34,8 +32,7 @@ class UsersTableSeeder extends Seeder
           'email' => 'siti@gmail.com',
           'no_kp' => '705570088888',
           'cawangan' => '1',
-          'password' => bcrypt('abc123'),
-          'total_records' => 1
+          'password' => bcrypt('abc123')
       ]);
     }
 }

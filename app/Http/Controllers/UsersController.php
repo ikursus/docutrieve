@@ -69,7 +69,30 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate Data
+        $request->validate([
+          'nama' => 'required|string',
+          'no_kp' => 'required|numeric',
+          'email' => 'required|email',
+          'cawangan' => 'required',
+          'password' => 'required|min:3'
+        ]);
+
+        // Dapatkan rekod dari borang
+        $data = $request->only([
+          'nama',
+          'no_kp',
+          'email',
+          'cawangan'
+        ]);
+        // Encrypt password
+        $data['password'] = bcrypt( $request->input('password') );
+
+        // Simpan rekod ke dalam database pada table users
+        DB::table('users')->insert($data);
+
+        // Kembali ke halaman senarai users
+        return redirect('users');
     }
 
     /**

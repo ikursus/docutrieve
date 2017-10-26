@@ -58,7 +58,7 @@ class UsersController extends Controller
     public function create()
     {
       // Paparkan borang tambah user dari folder_users
-        return view('folder_users/borang');
+        return view('folder_users/borang_tambah');
     }
 
     /**
@@ -114,7 +114,11 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+      // Dapatkan rekod user berdasarkan nombor ID dari table users
+      $user = DB::table('users')->where('id', '=', $id)->first();
+
+      // Paparkan borang edit user dari folder_users dan passkan variable $user
+      return view('folder_users/borang_edit', compact('user'));
     }
 
     /**

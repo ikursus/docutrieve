@@ -9,7 +9,9 @@
 
                 <div class="panel-body">
 
-                  <a class="btn btn-primary" href="{{ url('users/tambah') }}">Tambah User</a>
+                  <a class="btn btn-primary" href="{{ route('borangTambahUser') }}">
+                    Tambah User
+                  </a>
 
                   <li><a href="{{ url('users') }}?caw=1">Cawangan 1</a></li>
                   <li><a href="{{ url('users') }}?caw=2">Cawangan 2</a></li>
@@ -22,6 +24,7 @@
                         <th>Nama User</th>
                         <th>No. KP</th>
                         <th>Email</th>
+                        <th>Tindakan</th>
                       </tr>
                     </thead>
 
@@ -32,6 +35,9 @@
                           <td>{{ $user->nama }}</td>
                           <td>{{ $user->no_kp }}</td>
                           <td>{{ $user->email }}</td>
+                          <td>
+                            <a class="btn btn-xs btn-info" href="{{ route('borangEditUser', $user->id)  }}">Kemaskini</a>
+                          </td>
                         </tr>
 
                       @endforeach

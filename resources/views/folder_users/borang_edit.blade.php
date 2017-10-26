@@ -16,7 +16,7 @@
                           <label for="nama" class="col-md-4 control-label">Nama User</label>
 
                           <div class="col-md-6">
-                              <input id="nama" type="text" class="form-control" name="nama" value="{{  }}" autofocus>
+                              <input id="nama" type="text" class="form-control" name="nama" value="{{ $user->nama }}" autofocus>
                               {!! $errors->first('nama', ':message') !!}
                           </div>
                       </div>
@@ -25,7 +25,7 @@
                           <label for="email" class="col-md-4 control-label">E-Mail User</label>
 
                           <div class="col-md-6">
-                              <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
+                              <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" autofocus>
                               {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
                           </div>
                       </div>
@@ -34,7 +34,7 @@
                           <label for="telefon" class="col-md-4 control-label">No. KP</label>
 
                           <div class="col-md-6">
-                              <input id="no_kp" type="text" class="form-control" name="no_kp" value="{{ old('no_kp') }}" autofocus>
+                              <input id="no_kp" type="text" class="form-control" name="no_kp" value="{{ $user->no_kp }}" autofocus>
                               {!! $errors->first('no_kp', '<span style="color: green">:message</span>') !!}
                           </div>
                       </div>
@@ -43,7 +43,7 @@
                           <label for="telefon" class="col-md-4 control-label">Password</label>
 
                           <div class="col-md-6">
-                              <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}" autofocus>
+                              <input id="password" type="password" class="form-control" name="password" value="" autofocus>
                               {!! $errors->first('password', '<span style="color: green">:message</span>') !!}
                           </div>
                       </div>
@@ -63,7 +63,7 @@
                       <div class="form-group">
                           <div class="col-md-8 col-md-offset-4">
                               <button type="submit" class="btn btn-primary">
-                                  Save
+                                  Update
                               </button>
 
                           </div>

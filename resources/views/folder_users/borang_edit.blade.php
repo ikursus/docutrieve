@@ -9,7 +9,10 @@
 
                 <div class="panel-body">
 
+                  @include('layouts/alerts')
+
                   <form class="form-horizontal" method="POST" action="">
+                      <input type="hidden" name="_method" value="patch">
                       {{ csrf_field() }}
 
                       <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
@@ -44,6 +47,7 @@
 
                           <div class="col-md-6">
                               <input id="password" type="password" class="form-control" name="password" value="" autofocus>
+                              <span>Biarkan kosong jika tidak mahu tukar password</span>
                               {!! $errors->first('password', '<span style="color: green">:message</span>') !!}
                           </div>
                       </div>
@@ -53,9 +57,9 @@
 
                           <div class="col-md-6">
                               <select name="cawangan" class="form-control">
-                                <option {{ ($user->cawangan == 1) ? 'value="1" selected="selected"' : 'value="1"' }}>Cawangan 1</option>
-                                <option {{ ($user->cawangan == 2) ? 'value="2" selected="selected"' : 'value="2"' }}>Cawangan 2</option>
-                                <option {{ ($user->cawangan == 3) ? 'value="3" selected="selected"' : 'value="3"' }}>Cawangan 3</option>
+                                <option {{ ($user->cawangan == 1) ? 'value="1" selected="selected"' : 'value=1' }}>Cawangan 1</option>
+                                <option {{ ($user->cawangan == 2) ? 'value="2" selected="selected"' : 'value=2' }}>Cawangan 2</option>
+                                <option {{ ($user->cawangan == 3) ? 'value="3" selected="selected"' : 'value=3' }}>Cawangan 3</option>
                               </select>
                           </div>
                       </div>

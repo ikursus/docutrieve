@@ -130,7 +130,35 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // Validate Data
+      $request->validate([
+        'nama' => 'required|string',
+        'no_kp' => 'required|numeric',
+        'email' => 'required|email',
+        'cawangan' => 'required'
+      ]);
+
+      // Dapatkan rekod dari borang
+      $data = $request->only([
+        'nama',
+        'no_kp',
+        'email',
+        'cawangan'
+      ]);
+
+      // Encrypt password sekiranya wujud data password yang baru
+      if( ! empty( $request->input('password') ) )
+      {
+        $data['password'] = bcrypt( $request->input('password') );
+      }
+
+
+      // Kemaskini rekod ke dalam database pada table users
+      // berdasarkan ID yang di edit
+      $user = DB::table('users')->where('id', '=', $id)->update($data);
+
+      // Kembali ke halaman borang kemaskini
+      return redirect()->back()->with('alert-success', 'Data berjaya dikemaskini');
     }
 
     /**

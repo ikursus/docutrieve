@@ -25,3 +25,6 @@ Route::get('users/{id}', 'UsersController@edit')->name('borangEditUser');
 // Untuk terima data dari borang edit user dan simpan kemaskini rekod
 // dalam database table users
 Route::patch('users/{id}', 'UsersController@update')->name('kemaskiniRekodUser');
+
+// Untuk hapuskan data user
+Route::delete('users/{id}', 'UsersController@destroy')->name('deleteUser');

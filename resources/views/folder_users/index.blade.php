@@ -37,6 +37,40 @@
                           <td>{{ $user->email }}</td>
                           <td>
                             <a class="btn btn-xs btn-info" href="{{ route('borangEditUser', $user->id)  }}">Kemaskini</a>
+
+                            <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-{{ $user->id }}">
+  Delete
+</button>
+
+<!-- Modal -->
+<form method="post" action="{{ route('deleteUser', $user->id) }}">
+  <input type="hidden" name="_method" value="DELETE">
+  {{ csrf_field() }}
+
+<div class="modal fade" id="delete-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        Adakah anda bersetuju untuk hapuskan data berikut?
+        Nama: {{ $user->nama }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>
+
+
+
                           </td>
                         </tr>
 

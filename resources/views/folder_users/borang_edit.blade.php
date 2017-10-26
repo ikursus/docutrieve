@@ -53,9 +53,9 @@
 
                           <div class="col-md-6">
                               <select name="cawangan" class="form-control">
-                                <option value="1">Cawangan 1</option>
-                                <option value="2">Cawangan 2</option>
-                                <option value="3">Cawangan 3</option>
+                                <option @if ($user->cawangan == 1) value="1" selected="selected" @else value="1" @endif>Cawangan 1</option>
+                                <option @if ($user->cawangan == 2) value="2" selected="selected" @else value="2" @endif>Cawangan 2</option>
+                                <option @if ($user->cawangan == 3) value="3" selected="selected" @else value="3" @endif>Cawangan 3</option>
                               </select>
                           </div>
                       </div>

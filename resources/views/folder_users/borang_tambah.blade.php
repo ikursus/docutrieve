@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
 
-                  <form class="form-horizontal" method="POST" action="">
+                  <form class="form-horizontal" method="POST" action="{{ route('simpanRekodUser')}}">
                       {{ csrf_field() }}
 
                       <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">

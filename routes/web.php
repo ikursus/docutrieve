@@ -28,3 +28,4 @@ Route::patch('users/{id}', 'UsersController@update')->name('kemaskiniRekodUser')
 
 // Untuk hapuskan data user
 Route::delete('users/{id}', 'UsersController@destroy')->name('deleteUser');
+Route::get('users/{id}/orders', 'UsersController@show')->name('orderUser');

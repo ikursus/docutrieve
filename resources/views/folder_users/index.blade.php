@@ -36,6 +36,7 @@
                           <td>{{ $user->no_kp }}</td>
                           <td>{{ $user->email }}</td>
                           <td>
+                            <a class="btn btn-xs btn-primary" href="{{ route('orderUser', $user->id)  }}">Order</a>
                             <a class="btn btn-xs btn-info" href="{{ route('borangEditUser', $user->id)  }}">Kemaskini</a>
 
                             <!-- Button trigger modal -->
